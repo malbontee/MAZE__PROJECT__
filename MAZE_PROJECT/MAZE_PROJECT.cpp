@@ -24,7 +24,7 @@ enum Objects { HALL, WALL, COIN, ENEMY, HEALTH };
 int main()
 {
     int coins = 0;
-    // int health = 100;
+    
     int sleep = 20000;
     int total_coins = 0;
     system(("title Bomber! - Bitcoins collected: " + to_string(coins)).c_str());
@@ -62,7 +62,7 @@ int main()
                     location[y][x] = HALL;
             }
 
-            if (location[y][x] == HEALTH) { // HEALTH еще буду дорабатывать!
+            if (location[y][x] == HEALTH) { // HEALTH (сердечки) как новый объект лабиринта
                 int prob = rand() % 10;
                 if (prob != 0)
                     location[y][x] = HALL;
@@ -168,7 +168,7 @@ int main()
             break;
         }
 
-        // Обработка сбора монет. Монетки нужно преобразовывать к строке!
+        // Обработка сбора монет
         if (location[position.Y][position.X] == COIN) {
             coins++;
             system(("title Bomber! - Bitcoins collected: " + to_string(coins)).c_str()); // Обновляем заголовок окна
